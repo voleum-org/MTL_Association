@@ -2,6 +2,7 @@
 import { useGetMembers } from "@/hooks";
 import { Link } from "./Link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { IMember } from "@/interfaces";
 import { Loader } from "./Loader";
 
@@ -12,6 +13,8 @@ export interface MembersProps {
 
 const Members: React.FC<MembersProps> = ({ delegateId, delegateName }) => {
   const { members, isLoading, isValidating, mutate } = useGetMembers();
+  const router = useRouter();
+  router.replace("https://app.mtla.me");
 
   return (
     <section>
